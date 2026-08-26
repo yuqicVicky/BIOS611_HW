@@ -4,13 +4,6 @@
 
 The new behavior is caused by `alias`. An alias gives a short name to another command or command phrase.
 
-For example:
-
-```bash
-alias hello="echo hello world"
-hello
-```
-
 Even though `hello` is not a file on the path, the shell first checks whether the command word is an alias. Since `hello` is an alias, the shell replaces it with:
 
 ```bash
@@ -23,30 +16,13 @@ So I would modify my evaluation strategy like this: before searching for a comma
 
 ## Problem 2
 
-For:
-
-```bash
-alias zz=zz
-zz
-```
-
 I expect an error message like:
 
 ```text
 zz: command not found
 ```
 
-This suggests that alias expansion does not create a real command. It only substitutes text. It also suggests that bash prevents infinite alias recursion. In other words, `zz` does not keep expanding into `zz` forever.
-
-For:
-
-```bash
-alias aa=bb
-alias bb=aa
-aa
-```
-
-I expect this to produce a command-not-found error, not an infinite loop. The shell may expand `aa` to `bb`, and `bb` back to `aa`, but it keeps track of aliases already expanded on the current command line and prevents infinite recursion.
+This suggests that alias expansion does not create a real command. It only substitutes text. It also suggests that bash prevents infinite alias recursion. I expect this to produce a command-not-found error, not an infinite loop. The shell may expand `aa` to `bb`, and `bb` back to `aa`, but it keeps track of aliases already expanded on the current command line and prevents infinite recursion.
 
 ## Problem 3
 
@@ -82,13 +58,7 @@ $@ = a b c d e
 
 ## Problem 4
 
-The first line:
-
-```bash
-#!/bin/bash
-```
-
-is called a shebang. It tells the operating system which program should interpret the script.
+The first line is called a shebang. It tells the operating system which program should interpret the script.
 
 Its purpose is to make sure that when I run:
 
@@ -126,17 +96,11 @@ In a Dockerfile, `RUN` and `CMD` are different.
 
 `CMD` does not run during the image build. Instead, it specifies the default command to run when a container starts from the image. If a Dockerfile has more than one `CMD`, only the last one takes effect.
 
-So the short version is: `RUN` is for building the image, and `CMD` is for running a container from the image.
-
-Reference: https://docs.docker.com/reference/dockerfile/
-
 ## Problem 7
 
-`apt` is the package manager for Ubuntu and Debian Linux systems. It installs system-level software, such as `git`, `curl`, `man-db`, compilers, and Linux libraries.
-
-`pip` is the package manager for Python. It installs Python packages, such as `numpy`, `pandas`, `matplotlib`, and `requests`.
-
-`install.packages` is an R function for installing R packages, usually from CRAN. For example, `install.packages("tidyverse")` installs the R package `tidyverse`.
+`apt` is the package manager for Ubuntu and Debian Linux systems. It installs system-level software, such as `git`
+`pip` is the package manager for Python. It installs Python packages, such as `numpy`
+`install.packages` is an R function for installing R packages, usually from CRAN. 
 
 ## Problem 8
 
@@ -215,5 +179,5 @@ After that, I created a new repository on GitHub and connected my local reposito
 My GitHub repository link is:
 
 ```text
-PASTE YOUR GITHUB REPOSITORY LINK HERE
+https://github.com/yuqicVicky/BIOS611_HW
 ```
